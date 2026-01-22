@@ -2,6 +2,11 @@ from Task1B import stations_by_distance
 
 
 #to check distances
+class MockStation:
+    def __init__(self, name, coord):
+        self.name = name
+        self.coord = coord
+
 def test_stations_by_distance_basic():
     stations = [
         MockStation("A", (52.2053, 0.1218)),  # Cambridge centre
