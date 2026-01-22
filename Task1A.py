@@ -9,6 +9,7 @@ def run():
     """Requirements for Task 1A"""
 
     # Build list of stations
+    # deniz woz here
     stations = build_station_list()
 
     # Print number of stations
