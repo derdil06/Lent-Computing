@@ -1,3 +1,6 @@
+from Task1B import stations_by_distance
+
+
 #to check distances
 def test_stations_by_distance_basic():
     stations = [
