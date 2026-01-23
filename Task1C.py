@@ -14,6 +14,5 @@ def run():
 
 
 if __name__ == "__main__":
-    """run Task 1C."""
     print("*** Task 1C: CUED Part IA Flood Warning System ***")
     run()

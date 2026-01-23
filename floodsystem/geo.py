@@ -11,7 +11,7 @@ from haversine import haversine
 
 
 def stations_within_radius(stations, centre, r):
-    """return a list of stations within r of centre."""
+    """return a list of stations within radius r of centre in km"""
     stations_in_radius = []
 
     for station in stations:
