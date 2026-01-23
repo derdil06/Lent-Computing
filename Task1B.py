@@ -4,7 +4,7 @@ from floodsystem.stationdata import build_station_list #from1a
 from floodsystem.utils import sorted_by_key
 
 def stations_by_distance(stations, p):
-    """Return a list of (station, distance) tuples, sorted by distance"""
+    """return a list of (station, distance) tuples, sorted by distance"""
 
     stations_dist = []
 
@@ -17,6 +17,7 @@ def stations_by_distance(stations, p):
 
 
 def run():
+    """print the 10 closest and 10 furthest stations from Cambridge city centre."""
     stations = build_station_list() #makes list
     cambridge_centre = (52.2053, 0.1218)
 
