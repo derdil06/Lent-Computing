@@ -6,8 +6,8 @@ def test_stations_within_radius_basic():
     """tests if stations are correctly identified within a given radius"""
     centre = (52.2053, 0.1218)
 
-    s1 = MonitoringStation("id1", "m1", "Station 1",(52.0, 0.0),None, "River A", "Town A")
-    s2 = MonitoringStation("id2", "m2", "Station 2",(53.0, 1.0),None, "River B", "Town B")
+    s1 = MonitoringStation("id1", "m1", "Station 1",(centre),None, "River A", "Town A")
+    s2 = MonitoringStation("id2", "m2", "Station 2",(0.0, 0.0),None, "River B", "Town B")
 
     stations = [s1, s2]
 
