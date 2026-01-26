@@ -39,3 +39,23 @@ class MonitoringStation:
         d += "   river:         {}\n".format(self.river)
         d += "   typical range: {}".format(self.typical_range)
         return d
+
+
+class MonitoringStation:
+    """a class representing a river monitoring station"""
+
+    def relative_water_level(self):
+        """returns the latest water level as a fraction of the typical range"""
+
+        if self.latest_level is None: #check data availability
+            return None
+
+        if self.typical_range is None:
+            return None
+
+        typical_low, typical_high = self.typical_range
+
+        if typical_low >= typical_high: #check for inconsistent typical range
+            return None
+
+        return (self.latest_level - typical_low) / (typical_high - typical_low)
