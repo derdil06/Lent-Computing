@@ -1,4 +1,4 @@
-"""from floodsystem.stationdata import build_station_list, update_water_levels
+from floodsystem.stationdata import build_station_list, update_water_levels
 from floodsystem.station import stations_level_over_threshold
 
 
@@ -15,4 +15,4 @@ def run():
 
 
 if __name__ == "__main__":
-    run()"""
+    run()
