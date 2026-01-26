@@ -41,9 +41,6 @@ class MonitoringStation:
         return d
 
 
-class MonitoringStation:
-    """a class representing a river monitoring station"""
-
     def relative_water_level(self):
         """returns the latest water level as a fraction of the typical range"""
 
