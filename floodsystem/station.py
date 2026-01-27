@@ -83,3 +83,32 @@ def stations_highest_rel_level(stations, N):
     stations_with_levels.sort(key=lambda x: x[1], reverse=True) #sort by relative level descending
 
     return [station for station, _ in stations_with_levels[:N]] #return the first N stations
+
+"""
+Plotting utilities for river level monitoring stations.
+"""
+
+import matplotlib.pyplot as plt
+
+
+def plot_water_levels(station, dates, levels):
+    """display a plot of water level data against time for a given station"""
+    plt.plot(dates, levels, label="Water level") #plot measured water levels
+
+    if station.typical_range is not None: #typical low/high levels
+        low, high = station.typical_range
+        plt.hlines(low, dates[0], dates[-1],
+                   colors="green", linestyles="dashed",
+                   label="Typical low")
+        plt.hlines(high, dates[0], dates[-1],
+                   colors="red", linestyles="dashed",
+                   label="Typical high")
+    #labelling
+    plt.xlabel("Date")
+    plt.ylabel("Water level (m)")
+    plt.title(station.name)
+    plt.xticks(rotation=45)
+    plt.legend()
+
+    plt.tight_layout()
+    plt.show()
