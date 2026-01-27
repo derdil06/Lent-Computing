@@ -20,7 +20,7 @@ def test_station_relative_water_level_sorting():
 
     s1 = MonitoringStation("id1", "m1", "Station 1", (0, 0),typical_range=(0.0, 1.0),river="R1", town="T1")
     s2 = MonitoringStation("id2", "m2", "Station 2", (0, 0),typical_range=(0.0, 2.0),river="R2", town="T2")
-    s3 = MonitoringStation("id3", "m3", "Station 3", (0, 0),typical_range=None,)   # Invalid
+    s3 = MonitoringStation("id3", "m3", "Station 3", (0, 0),typical_range=None,river="R3",town="T3")    # invalid
 
     s1.latest_level = 0.5    # relative = 0.5
     s2.latest_level = 1.5    # relative = 0.75
@@ -28,11 +28,11 @@ def test_station_relative_water_level_sorting():
     stations = [s1, s2, s3]
 
     #filter out invalid stations
-    stations = [s for s in stations if s.relative_water_level() is not None]
+    stations = [s for s in stations unif s.relative_water_level() is not None]
 
     stations.sort(key=lambda s: s.relative_water_level(),reverse=True)
 
     #ordering
-    assert stations[0].label == "Station 2"
-    assert stations[1].label == "Station 1"
+    assert stations[0].name == "Station 2"
+    assert stations[1].name == "Station 1"
     assert len(stations) == 2
