@@ -28,7 +28,7 @@ def test_station_relative_water_level_sorting():
     stations = [s1, s2, s3]
 
     #filter out invalid stations
-    stations = [s for s in stations unif s.relative_water_level() is not None]
+    stations = [s for s in stations if s.relative_water_level() is not None]
 
     stations.sort(key=lambda s: s.relative_water_level(),reverse=True)
 
