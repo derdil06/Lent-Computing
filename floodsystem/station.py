@@ -84,11 +84,8 @@ def stations_highest_rel_level(stations, N):
 
     return [station for station, _ in stations_with_levels[:N]] #return the first N stations
 
-"""
-Plotting utilities for river level monitoring stations.
-"""
 
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt 
 
 
 def plot_water_levels(station, dates, levels):
