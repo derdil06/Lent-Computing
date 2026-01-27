@@ -33,6 +33,6 @@ def test_station_relative_water_level_sorting():
     stations.sort(key=lambda s: s.relative_water_level(),reverse=True)
 
     #ordering
-    assert stations[0].name == "Station 2"
-    assert stations[1].name == "Station 1"
+    assert stations[0].label == "Station 2"
+    assert stations[1].label == "Station 1"
     assert len(stations) == 2
