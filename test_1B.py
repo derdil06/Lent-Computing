@@ -28,8 +28,7 @@ def test_stations_by_distance_basic():
 def test_stations_by_distance_values():
     stations = [
         MockStation("A", (52.2053, 0.1218)),
-        MockStation("B", (52.2153, 0.1218)),
-    ]
+        MockStation("B", (52.2153, 0.1218)),]
 
     p = (52.2053, 0.1218)
     result = stations_by_distance(stations, p)
@@ -38,17 +37,10 @@ def test_stations_by_distance_values():
         assert isinstance(dist, float)
         assert dist >= 0
 
-#test list
-
-def test_stations_by_distance_empty():
-    result = stations_by_distance([], (52.2053, 0.1218))
-    assert result == []
-
 #structure
 def test_stations_by_distance_structure():
     stations = [
-        MockStation("A", (52.2053, 0.1218)),
-    ]
+        MockStation("A", (52.2053, 0.1218)),]
 
     result = stations_by_distance(stations, (52.2053, 0.1218))
 

@@ -27,7 +27,6 @@ def test_stations_within_radius_all_included():
     stations = [s1, s2]
 
     result = stations_within_radius(stations, centre, 1000)
-
     assert set(result) == set(stations)
 
 def test_stations_within_radius_empty():
