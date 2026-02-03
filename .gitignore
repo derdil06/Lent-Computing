@@ -1,6 +1,10 @@
-# Python cache
+cache/
 __pycache__/
+
 *.pyc
 
-# Virtual environment
-venv/
+*.bak
+*~
+.DS_Store
+
+.vscode/
