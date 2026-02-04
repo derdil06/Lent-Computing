@@ -1,12 +1,6 @@
 from Task1E import rivers_by_station_number
 from floodsystem.stationdata import build_station_list
 
-from floodsystem.stationdata import rivers_by_station_number
-
-
-from floodsystem.stationdata import rivers_by_station_number
-
-
 class MockStation:
     """minimal mock MonitoringStation object for unit testing"""
     def __init__(self, river):
