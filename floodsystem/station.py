@@ -8,17 +8,16 @@ for manipulating/modifying station data
 
 
 class MonitoringStation:
-    """This class represents a river level monitoring station"""
+    """this class represents a river level monitoring station"""
 
     def __init__(self, station_id, measure_id, label, coord, typical_range,
                  river, town):
-        """Create a monitoring station."""
-
+        """creates a monitoring station."""
+                
         self.station_id = station_id
         self.measure_id = measure_id
 
-        # Handle case of erroneous data where data system returns
-        # '[label, label]' rather than 'label'
+        #handle case of erroneous data where data system returns
         self.name = label
         if isinstance(label, list):
             self.name = label[0]
@@ -29,6 +28,14 @@ class MonitoringStation:
         self.town = town
 
         self.latest_level = None
+
+    def typical_range_consistent(self):
+        """return True if the station has consistent typical range data"""
+        if self.typical_range is None:
+            return False
+
+        low, high = self.typical_range
+        return low <= high
 
     def __repr__(self):
         d = "Station name:     {}\n".format(self.name)
