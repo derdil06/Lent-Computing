@@ -4,7 +4,7 @@ from floodsystem.stationdata import build_station_list #from1a
 from floodsystem.utils import sorted_by_key
 
 def stations_by_distance(stations, p):
-    """return a list of (station, distance) tuples, sorted by distance"""
+    """return a list of (station, distance in km) tuples, sorted by distance"""
 
     stations_dist = []
 
