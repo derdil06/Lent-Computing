@@ -109,3 +109,17 @@ def plot_water_levels(station, dates, levels):
 
     plt.tight_layout()
     plt.show()
+
+def typical_range_consistent(self):
+    """
+    Check whether the typical low/high range data is consistent.
+    """
+    tr = self.typical_range
+    if tr is None:
+        return False
+
+    low, high = tr
+    if low > high:
+        return False
+
+    return True
