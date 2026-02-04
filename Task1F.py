@@ -6,14 +6,8 @@ def inconsistent_typical_range_stations(stations):
 
     inconsistent = []
     for station in stations:
-        # typical_range expected to be a tuple (low, high)
-        tr = station.typical_range
-        if tr is None:
+        if not station.typical_range_consistent():
             inconsistent.append(station.name)
-        else:
-            low, high = tr
-            if low > high:
-                inconsistent.append(station.name)
 
     # return sorted list of names
     return sorted(inconsistent)
