@@ -1,8 +1,6 @@
 from Task1E import rivers_by_station_number
 from floodsystem.stationdata import build_station_list
 
-<<<<<<< HEAD
-=======
 def run():
     """Demonstration program for Task 1E."""
     stations = build_station_list()
@@ -24,4 +22,3 @@ def run():
     # The results are sorted in descending order by station count
     counts = [count for _, count in result]
     assert counts == sorted(counts, reverse=True)
->>>>>>> a4ac7db (Change test_1E to pytest)
