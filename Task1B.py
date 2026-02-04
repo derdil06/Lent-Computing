@@ -9,7 +9,7 @@ def stations_by_distance(stations, p):
     stations_dist = []
 
     for station in stations: #loops through stations
-        dist = haversine(p, station.coord) #finds distance
+        dist = haversine(p, station.coord) #finds distance, p is distance in km
         stations_dist.append((station, dist))
 
     stations_dist = sorted_by_key(stations_dist, 1)
