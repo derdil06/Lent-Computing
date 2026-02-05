@@ -1,4 +1,4 @@
-from Task1F import inconsistent_typical_range_stations
+from floodsystem.station import inconsistent_typical_range_stations
 
 class MockStation:
     """minimal mock MonitoringStation object for unit testin"""
