@@ -37,8 +37,6 @@ def run():
     for river, count in result:
         print((river, count))
 
-        print("test for test sakes")
-
 if __name__ == "__main__":
     print("*** Task 1E: CUED Part IA Flood Warning System ***")
     run()
