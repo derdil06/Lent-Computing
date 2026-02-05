@@ -63,6 +63,19 @@ class MonitoringStation:
             return None
 
         return (self.latest_level - typical_low) / (typical_high - typical_low)
+    def typical_range_consistent(self):
+        """Check whether the typical low/high range data is consistent."""
+        tr = self.typical_range
+        if tr is None:
+            return False
+        
+        low, high = tr
+        if low > high:
+            return False
+        
+        return True
+    
+    
     
 def stations_level_over_threshold(stations, tol):
     """return stations where relative water level exceeds a given threshold"""
@@ -117,16 +130,14 @@ def plot_water_levels(station, dates, levels):
     plt.tight_layout()
     plt.show()
 
-def typical_range_consistent(self):
-    """
-    Check whether the typical low/high range data is consistent.
-    """
-    tr = self.typical_range
-    if tr is None:
-        return False
+def inconsistent_typical_range_stations(stations):
+    """Return a sorted list of station names that have inconsistent typical range data.
+    A station is inconsistent if: - typical_range is None, or - typical_range_low > typical_range_high"""
 
-    low, high = tr
-    if low > high:
-        return False
+    inconsistent = []
+    for station in stations:
+        if not station.typical_range_consistent():
+            inconsistent.append(station.name)
 
-    return True
+    # return sorted list of names
+    return sorted(inconsistent)
