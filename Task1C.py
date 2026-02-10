@@ -4,7 +4,7 @@ from floodsystem.geo import stations_within_radius
 
 def run():
     """print stations within 10 km of Cambridge city centre."""
-    stations = build_station_list()
+    stations = build_station_list() #makes list
     cambridge_centre = (52.2053, 0.1218)
 
     nearby_stations = stations_within_radius(stations, cambridge_centre, 10)
