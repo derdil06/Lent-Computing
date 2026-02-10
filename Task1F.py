@@ -1,16 +1,5 @@
 from floodsystem.stationdata import build_station_list
-
-def inconsistent_typical_range_stations(stations):
-    """Return a sorted list of station names that have inconsistent typical range data.
-    A station is inconsistent if: - typical_range is None, or - typical_range_low > typical_range_high"""
-
-    inconsistent = []
-    for station in stations:
-        if not station.typical_range_consistent():
-            inconsistent.append(station.name)
-
-    # return sorted list of names
-    return sorted(inconsistent)
+from floodsystem.station import inconsistent_typical_range_stations
 
 def run():
     """Demonstration program for Task 1F."""
