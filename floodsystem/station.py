@@ -107,20 +107,32 @@ def stations_highest_rel_level(stations, N):
 
 import matplotlib.pyplot as plt 
 
-
 def plot_water_levels(station, dates, levels):
-    """display a plot of water level data against time for a given station"""
-    plt.plot(dates, levels, label="Water level") #plot measured water levels
+    """Display a plot of water level data against time for a given station"""
 
-    if station.typical_range is not None: #typical low/high levels
+    # Prevent crash if no data
+    if not dates or not levels:
+        print(f"No data available for {station.name}")
+        return
+
+    plt.plot(dates, levels, label="Water level")
+
+    # Plot typical range if valid
+    if station.typical_range is not None:
         low, high = station.typical_range
-        plt.hlines(low, dates[0], dates[-1],
-                   colors="green", linestyles="dashed",
-                   label="Typical low")
-        plt.hlines(high, dates[0], dates[-1],
-                   colors="red", linestyles="dashed",
-                   label="Typical high")
-    #labelling
+
+        # Only plot bounds if they are real numbers
+        if low is not None:
+            plt.hlines(low, dates[0], dates[-1],
+                       colors="green", linestyles="dashed",
+                       label="Typical low")
+
+        if high is not None:
+            plt.hlines(high, dates[0], dates[-1],
+                       colors="red", linestyles="dashed",
+                       label="Typical high")
+
+    # Labelling
     plt.xlabel("Date")
     plt.ylabel("Water level (m)")
     plt.title(station.name)
