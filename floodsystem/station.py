@@ -141,3 +141,35 @@ def inconsistent_typical_range_stations(stations):
 
     # return sorted list of names
     return sorted(inconsistent)
+
+import matplotlib
+import numpy as np
+import matplotlib.pyplot as plt
+
+def polyfit(dates, levels, p):
+
+    x = matplotlib.dates.date2num(dates)
+    d0 = x[0]
+    x_shifted = x - d0
+
+    p_coeff = np.polyfit(x_shifted, levels, p)
+    poly = np.poly1d(p_coeff)
+
+    return poly, d0
+
+def plot_water_level_with_fit(station, dates, levels, p):
+    poly, d0 = polyfit(dates, levels, p)
+
+    x = matplotlib.dates.date2num(dates)
+    x_shifted = x - d0
+
+    fitted = poly(x_shifted)
+
+    plt.plot(dates, levels, '.')
+    plt.plot(dates, fitted)
+    plt.xlabel('date')
+    plt.ylabel('water level (m)')
+    plt.title(station.name)
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.show()
