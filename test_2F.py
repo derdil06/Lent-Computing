@@ -47,3 +47,4 @@ def test_plot_water_level_with_fit_no_crash(tmp_path, monkeypatch):
     lines = ax.get_lines()
 
     assert len(lines) >= 2
+    
