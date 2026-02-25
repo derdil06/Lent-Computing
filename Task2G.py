@@ -40,9 +40,9 @@ def get_risk_assessment(n=10):
 
         x_last = matplotlib.dates.date2num(dates[-1]) - d0
         slope = np.polyder(p)(x_last)
-        slope = max(min(slope, 5), -5)
 
         risk = rel + slope
+            
 
         if st.town:
             if st.town not in town_risk:
@@ -67,5 +67,12 @@ def run():
         print(f"{town}: {score:.3f}")
 
 
-if __name__ == "__main__":
-    run()
+#if __name__ == "__main__":
+ #   run()
+
+stations = build_station_list()
+
+update_water_levels(stations)
+for i in stations:
+    if i.town == 'Arlesey':
+        print(i, i.relative_water_level(), i.latest_level)
