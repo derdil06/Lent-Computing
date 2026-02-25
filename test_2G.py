@@ -7,16 +7,20 @@ from floodsystem.datafetcher import fetch_measure_levels
 from Task2G import get_risk_assessment
 
 def test_get_risk_assessment_basic():
-    from Task2G  import get_risk_assessment
+    """test that get_risk_assessment returns a properly structured
+    and correctly ordered list of flood risk results"""
 
     result = get_risk_assessment(5)
-
     assert isinstance(result, list)
-
     assert len(result) <= 5
 
-    for name in result:
-        assert isinstance(name, str)
-        assert name != ""
+    for town, score in result:
+        assert isinstance(town, str)
+        assert town != ""
+        assert isinstance(score, (int, float))
 
-    assert len(set(result)) == len(result)
+    towns = [town for town, _ in result]
+    assert len(set(towns)) == len(towns)
+
+    scores = [score for _, score in result]
+    assert scores == sorted(scores, reverse=True)
