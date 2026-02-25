@@ -7,6 +7,9 @@ from floodsystem.station import polyfit
 from floodsystem.station import plot_water_level_with_fit
 
 def test_polyfit_basic():
+    """test that polyfit correctly computes a least-squares polynomial fit
+    and applies the appropriate time shift to improve numerical stability"""
+
     dates = [datetime(2025, 1, 1) + timedelta(days=i) for i in range(5)]
     x_vals = matplotlib.dates.date2num(dates)
 
@@ -26,8 +29,12 @@ def test_polyfit_basic():
         y_pred = poly(x_test)
 
         assert abs(y_pred - levels[i]) < 1e-8
-    
+
+
 def test_plot_water_level_with_fit_no_crash(tmp_path, monkeypatch):
+    """test that plot_water_level_with_fit executes without error
+    and produces plotted lines"""
+
     dates = [datetime(2025, 1, 1) + timedelta(days=i) for i in range(3)]
     x_vals = matplotlib.dates.date2num(dates)
     x_shifted = x_vals - x_vals[0]
@@ -47,4 +54,3 @@ def test_plot_water_level_with_fit_no_crash(tmp_path, monkeypatch):
     lines = ax.get_lines()
 
     assert len(lines) >= 2
-    
